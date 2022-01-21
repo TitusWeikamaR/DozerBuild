@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "dozerbuild-dfa2b": {
+      "hosting": {
+        "client": [
+          "dozerbuild-dfa2b"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "dozerbuild-dfa2b"
+  }
+}

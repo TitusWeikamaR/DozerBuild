@@ -113,6 +113,16 @@
               "devServerTarget": "client:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "client:build:production",
+            "firebaseProject": "dozerbuild-dfa2b",
+            "firebaseHostingSite": "dozerbuild-dfa2b"
+          }
         }
       }
     }
