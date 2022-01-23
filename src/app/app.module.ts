@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms'; 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,13 +9,16 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
-//firebase intergration
+
+//Firebase intergration
 
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 
-// import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics';
+
+
 // import { provideAuth,getAuth } from '@angular/fire/auth';
+// import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics'
 // import { provideDatabase,getDatabase } from '@angular/fire/database';
 // import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 // import { provideFunctions,getFunctions } from '@angular/fire/functions';
@@ -36,7 +40,11 @@ import { environment } from '../environments/environment';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
+
+
+
     // provideAnalytics(() => getAnalytics()),
     // provideAuth(() => getAuth()),
     // provideDatabase(() => getDatabase()),
