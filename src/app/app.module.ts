@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,17 +15,20 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { provideStorage,getStorage } from '@angular/fire/storage';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 
-// import { provideAuth,getAuth } from '@angular/fire/auth';
+
 // import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics'
 // import { provideDatabase,getDatabase } from '@angular/fire/database';
-// import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 // import { provideFunctions,getFunctions } from '@angular/fire/functions';
 // import { provideMessaging,getMessaging } from '@angular/fire/messaging';
 // import { providePerformance,getPerformance } from '@angular/fire/performance';
 // import { provideRemoteConfig,getRemoteConfig } from '@angular/fire/remote-config';
-// import { provideStorage,getStorage } from '@angular/fire/storage';
+
 
 
 @NgModule({
@@ -35,25 +38,31 @@ import { environment } from '../environments/environment';
     RegisterComponent,
     HomeComponent,
     PageNotFoundComponent,
+    DashboardComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
+
+
+    // firebase
+    
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage()),
+    provideFirebaseApp(() => initializeApp(environment.firebase))
 
 
 
     // provideAnalytics(() => getAnalytics()),
-    // provideAuth(() => getAuth()),
     // provideDatabase(() => getDatabase()),
-    // provideFirestore(() => getFirestore()),
     // provideFunctions(() => getFunctions()),
     // provideMessaging(() => getMessaging()),
     // providePerformance(() => getPerformance()),
     // provideRemoteConfig(() => getRemoteConfig()),
-    // provideStorage(() => getStorage()),
+  
   ],
   providers: [
     // ScreenTrackingService,UserTrackingService
